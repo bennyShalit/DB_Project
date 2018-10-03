@@ -19,10 +19,11 @@ public class Driver {
 	public static void main(String[] args) throws Exception {
 
 		 MySQLAccess dao = new MySQLAccess();
-		 dao.readDataBase();
+//		 dao.readDataBase();
 //		 dao.writeMetaData(); // קורא לפונקציה מקלאס mySqlAccess
 //	     dao.writeResultSet(); // קורא לפונקציה מקלאס mySqlAccess
-	     dao.getData();
+//	     dao.getData();
+	     dao.getData2();
 		
 //		Driver d = new Driver();
 //		  try {

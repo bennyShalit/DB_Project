@@ -97,27 +97,55 @@ public class MySQLAccess {
             System.out.println("Comment: " + comment);
         }
     }
-    public void getData()
+//    public void getData()
+//    {
+//    	String sql = "SELECT * FROM bennydb.personsdetails" ;
+////    	String sql2 = "select bennydb.persons.ID,  bennydb.persons.FirstName,bennydb.persons.LastName,bennydb.persons.Age,bennydb.personsdetails.PersonsAddress from bennydb.persons inner join bennydb.personsdetails on bennydb.persons.ID=bennydb.personsdetails.idPersonsDetails";
+//    	try
+//    	{
+//    		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bennydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "dxc!369hp");
+//    		Statement s = con.prepareStatement(sql);
+//    		ResultSet rs=s.executeQuery(sql);
+//    		
+//    		while(rs.next())
+//    		{
+//    			String name=rs.getString(2);
+//    			String id=rs.getString(1);
+//    			System.out.println(id+" "+name);
+//    		}
+//    	}catch(SQLException ex)
+//    	{
+//    		ex.printStackTrace();
+//    	}
+//    }
+    
+    public void getData2()
     {
-    	String sql = "SELECT * FROM bennydb.personsdetails" ;
-//    	String sql2 = "select bennydb.persons.ID,  bennydb.persons.FirstName,bennydb.persons.LastName,bennydb.persons.Age,bennydb.personsdetails.PersonsAddress from bennydb.persons inner join bennydb.personsdetails on bennydb.persons.ID=bennydb.personsdetails.idPersonsDetails";
+    	String sql2 = "select bennydb.persons.ID,  bennydb.persons.FirstName,bennydb.persons.LastName,bennydb.persons.Age,bennydb.personsdetails.PersonsAddress from bennydb.persons inner join bennydb.personsdetails on bennydb.persons.ID=bennydb.personsdetails.idPersonsDetails";
     	try
     	{
     		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bennydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "dxc!369hp");
-    		Statement s = con.prepareStatement(sql);
-    		ResultSet rs=s.executeQuery(sql);
+    		Statement s = con.prepareStatement(sql2);
+    		ResultSet rs=s.executeQuery(sql2);
+    		
+			System.out.println("ID | Fname | Lname | AGE | Address");
+			System.out.println("-----------------------------------");
     		
     		while(rs.next())
     		{
-    			String name=rs.getString(2);
     			String id=rs.getString(1);
-    			System.out.println(id+" "+name);;
+    			String name=rs.getString(2);
+    			String Lname=rs.getString(3);
+    			String age=rs.getString(4);
+    			String address=rs.getString(5);
+    			System.out.println(id+" "+name+" "+Lname+" "+age+" "+address);
     		}
     	}catch(SQLException ex)
     	{
     		ex.printStackTrace();
     	}
     }
+    
 
     // You need to close the resultSet
     private void close() {
